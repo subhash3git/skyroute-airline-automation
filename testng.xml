@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Skyroute Airline Automation Suite"
+       parallel="tests"
+       thread-count="3">
+
+    <listeners>
+        <listener class-name="com.skyroute.TestListener"/>
+    </listeners>
+
+
+    <!-- Search Tests -->
+    <test name="Search Tests">
+
+        <classes>
+
+            <class name="com.skyroute.FlightSearchTest"/>
+
+            <class name="com.skyroute.FlightSearchValidationTest"/>
+
+            <class name="com.skyroute.FlightSearchSameCityTest"/>
+
+            <class name="com.skyroute.FlightSearchNoFlightsTest"/>
+
+            <class name="com.skyroute.FlightSearchDataDrivenTest"/>
+
+        </classes>
+
+    </test>
+
+
+    <!-- Passenger Tests -->
+    <test name="Passenger Tests">
+
+        <classes>
+
+            <class name="com.skyroute.FlightPassengerValidationTest"/>
+
+            <class name="com.skyroute.FlightPassengerInvalidEmailTest"/>
+
+            <class name="com.skyroute.FlightPassengerInvalidPhoneTest"/>
+
+        </classes>
+
+    </test>
+
+
+    <!-- Seat and Booking Tests -->
+    <test name="Seat and Booking Tests">
+
+        <classes>
+
+            <class name="com.skyroute.FlightSeatValidationTest"/>
+
+            <class name="com.skyroute.FlightBookedSeatsTest"/>
+
+        </classes>
+
+    </test>
+
+</suite>

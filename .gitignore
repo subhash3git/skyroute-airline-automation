@@ -1,0 +1,31 @@
+# Maven
+target/
+
+# Test reports
+test-output/
+surefire-reports/
+
+# Screenshots generated during test execution
+screenshots/
+
+# Logs
+logs/
+
+# VS Code
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Java compiled files
+*.class

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Skyroute Smoke Test Suite"
+       parallel="tests"
+       thread-count="3">
+
+    <listeners>
+        <listener class-name="com.skyroute.TestListener"/>
+    </listeners>
+
+    <test name="Smoke Tests">
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="com.skyroute"/>
+        </packages>
+
+    </test>
+
+</suite>
