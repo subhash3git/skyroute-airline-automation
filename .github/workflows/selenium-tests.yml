@@ -38,7 +38,7 @@ jobs:
           curl --fail http://127.0.0.1:5500/index.html
 
       - name: Run Selenium TestNG tests
-        run: mvn clean test
+        run: mvn clean test -DbaseUrl=http://127.0.0.1:5500/index.html
 
       - name: Upload test reports
         if: always()
