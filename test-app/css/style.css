@@ -1,0 +1,349 @@
+/* ========================= */
+/* GENERAL */
+/* ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #1f2937;
+
+}
+
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header {
+
+    background: #123c69;
+
+    color: white;
+
+    padding: 25px;
+
+    text-align: center;
+
+}
+
+
+header h1 {
+
+    margin: 0 0 8px;
+
+}
+
+
+header p {
+
+    margin: 0;
+
+}
+
+
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main {
+
+    max-width: 1000px;
+
+    margin: 30px auto;
+
+    padding: 0 20px;
+
+}
+
+
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.card {
+
+    background: white;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+.card h2 {
+
+    margin-top: 0;
+
+}
+
+
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+label {
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    border:
+        1px solid #cbd5e1;
+
+    font-size: 15px;
+
+}
+
+
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #1769aa;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+button:hover {
+
+    background: #0f568d;
+
+}
+
+
+
+/* ========================= */
+/* ERROR */
+/* ========================= */
+
+.error {
+
+    color: #b42318;
+
+    font-size: 14px;
+
+    min-height: 18px;
+
+}
+
+
+
+/* ========================= */
+/* HIDDEN */
+/* ========================= */
+
+.hidden {
+
+    display: none;
+
+}
+
+
+
+/* ========================= */
+/* FLIGHT CARD */
+/* ========================= */
+
+.flight-card {
+
+    border:
+        1px solid #d9e0e8;
+
+    border-radius: 8px;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.flight-card button {
+
+    width: 130px;
+
+    margin-top: 10px;
+
+}
+
+
+
+/* ========================= */
+/* SEAT MAP */
+/* ========================= */
+
+.seat-map {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 55px);
+
+    gap: 10px;
+
+    justify-content: center;
+
+    margin: 25px 0;
+
+}
+
+
+.seat {
+
+    margin: 0;
+
+    padding: 12px 5px;
+
+    background: #dceeff;
+
+    color: #123c69;
+
+}
+
+
+.seat.selected {
+
+    background: #1769aa;
+
+    color: white;
+
+}
+
+
+.seat.booked {
+
+    background: #999;
+
+    color: white;
+
+    cursor: not-allowed;
+
+}
+
+
+
+/* ========================= */
+/* CONFIRMATION */
+/* ========================= */
+
+.confirmation {
+
+    background: #e7f6ec;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+}
+
+
+.confirmation p {
+
+    margin: 10px 0;
+
+}
+
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 700px) {
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .seat-map {
+
+        grid-template-columns:
+            repeat(3, 55px);
+
+    }
+
+}

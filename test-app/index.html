@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkyRoute Airlines</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="header-content">
+
+            <h1>✈ SkyRoute Airlines</h1>
+
+            <p>Airline Reservation System</p>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ========================= -->
+        <!-- FLIGHT SEARCH -->
+        <!-- ========================= -->
+
+        <section
+            class="card"
+            id="flightSearchSection">
+
+            <h2>Search Flights</h2>
+
+            <div class="form-grid">
+
+
+                <!-- FROM -->
+
+                <div class="form-group">
+
+                    <label for="from">
+                        From
+                    </label>
+
+                    <select
+                        id="from"
+                        data-testid="from-city">
+
+                        <option value="">
+                            Select City
+                        </option>
+
+                        <option value="Bengaluru">
+                            Bengaluru
+                        </option>
+
+                        <option value="Delhi">
+                            Delhi
+                        </option>
+
+                        <option value="Mumbai">
+                            Mumbai
+                        </option>
+
+                        <option value="Hyderabad">
+                            Hyderabad
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TO -->
+
+                <div class="form-group">
+
+                    <label for="to">
+                        To
+                    </label>
+
+                    <select
+                        id="to"
+                        data-testid="to-city">
+
+                        <option value="">
+                            Select City
+                        </option>
+
+                        <option value="Delhi">
+                            Delhi
+                        </option>
+
+                        <option value="Mumbai">
+                            Mumbai
+                        </option>
+
+                        <option value="Chennai">
+                            Chennai
+                        </option>
+
+                        <option value="Hyderabad">
+                            Hyderabad
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DATE -->
+
+                <div class="form-group">
+
+                    <label for="departureDate">
+                        Departure Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="departureDate"
+                        data-testid="departure-date">
+
+                </div>
+
+
+                <!-- PASSENGERS -->
+
+                <div class="form-group">
+
+                    <label for="passengers">
+                        Passengers
+                    </label>
+
+                    <select
+                        id="passengers"
+                        data-testid="passengers">
+
+                        <option value="1">1</option>
+
+                        <option value="2">2</option>
+
+                        <option value="3">3</option>
+
+                        <option value="4">4</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH ERROR -->
+
+            <p
+                id="searchError"
+                class="error">
+            </p>
+
+
+            <button
+                id="searchButton"
+                data-testid="search-flights">
+
+                Search Flights
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- FLIGHT RESULTS -->
+        <!-- ========================= -->
+
+        <section
+            id="flightResultsSection"
+            class="card hidden">
+
+            <h2>
+                Available Flights
+            </h2>
+
+            <div
+                id="flightResults"
+                data-testid="flight-results">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- PASSENGER DETAILS -->
+        <!-- ========================= -->
+
+        <section
+            id="passengerSection"
+            class="card hidden">
+
+            <h2>
+                Passenger Details
+            </h2>
+
+
+            <div class="form-grid">
+
+
+                <!-- FIRST NAME -->
+
+                <div class="form-group">
+
+                    <label for="firstName">
+                        First Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="firstName"
+                        data-testid="first-name">
+
+                </div>
+
+
+                <!-- LAST NAME -->
+
+                <div class="form-group">
+
+                    <label for="lastName">
+                        Last Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="lastName"
+                        data-testid="last-name">
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        data-testid="email">
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone
+                    </label>
+
+                    <input
+                        type="text"
+                        id="phone"
+                        data-testid="phone">
+
+                </div>
+
+            </div>
+
+
+            <p
+                id="passengerError"
+                class="error">
+            </p>
+
+
+            <button
+                id="continueButton"
+                data-testid="continue-passenger">
+
+                Continue to Seat Selection
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- SEAT SELECTION -->
+        <!-- ========================= -->
+
+        <section
+            id="seatSection"
+            class="card hidden">
+
+            <h2>
+                Select Your Seat
+            </h2>
+
+            <p>
+                Select one available seat.
+            </p>
+
+
+            <div
+                id="seatMap"
+                class="seat-map"
+                data-testid="seat-map">
+
+            </div>
+
+
+            <p
+                id="seatError"
+                class="error">
+            </p>
+
+
+            <button
+                id="confirmButton"
+                data-testid="confirm-booking">
+
+                Confirm Booking
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- BOOKING CONFIRMATION -->
+        <!-- ========================= -->
+
+        <section
+            id="confirmationSection"
+            class="card hidden">
+
+            <h2>
+                🎉 Booking Confirmed
+            </h2>
+
+
+            <div class="confirmation">
+
+
+                <p>
+
+                    <strong>
+                        PNR:
+                    </strong>
+
+                    <span id="pnr"></span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Flight:
+                    </strong>
+
+                    <span
+                        id="confirmationFlight">
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Passenger:
+                    </strong>
+
+                    <span
+                        id="confirmationPassenger">
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Seat:
+                    </strong>
+
+                    <span
+                        id="confirmationSeat">
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Total:
+                    </strong>
+
+                    ₹<span
+                        id="confirmationPrice">
+                    </span>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
