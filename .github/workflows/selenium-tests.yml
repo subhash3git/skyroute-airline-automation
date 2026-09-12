@@ -1,0 +1,59 @@
+name: SkyRoute Selenium Automation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  automation-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '24'
+          cache: maven
+
+      - name: Verify Java and Maven
+        run: |
+          java -version
+          mvn -version
+
+      - name: Start SkyRoute application
+        run: |
+          python3 -m http.server 5500 --directory test-app > app-server.log 2>&1 &
+          sleep 5
+          curl --fail http://127.0.0.1:5500/index.html
+
+      - name: Run Selenium TestNG tests
+        run: mvn clean test
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skyroute-test-reports
+          path: |
+            test-output/
+            target/surefire-reports/
+          if-no-files-found: ignore
+
+      - name: Upload application server log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: application-server-log
+          path: app-server.log
+          if-no-files-found: ignore

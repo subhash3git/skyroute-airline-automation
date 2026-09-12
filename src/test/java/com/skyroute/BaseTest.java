@@ -173,7 +173,10 @@ public class BaseTest {
     protected void openApplication() {
 
         String baseUrl =
-                config.getProperty("baseUrl");
+                System.getProperty(
+                        "baseUrl",
+                        config.getProperty("baseUrl")
+                );
 
         logger.info(
                 "Opening SkyRoute application: {}",
