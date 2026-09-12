@@ -9,6 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -46,7 +49,10 @@ public class BaseTest {
         loadConfig();
 
         String browser =
-                config.getProperty("browser");
+                System.getProperty(
+                        "browser",
+                        config.getProperty("browser")
+                );
 
         logger.info(
                 "Browser configured: {}",
@@ -81,13 +87,40 @@ public class BaseTest {
     private void initializeBrowser(
             String browser) {
 
+        boolean headless =
+                Boolean.parseBoolean(
+                        System.getProperty(
+                                "headless",
+                                "false"
+                        )
+                );
+
         if (browser.equalsIgnoreCase("chrome")) {
 
             logger.info(
                     "Initializing Chrome browser"
             );
 
-            driver = new ChromeDriver();
+            ChromeOptions options =
+                    new ChromeOptions();
+
+            if (headless) {
+
+                options.addArguments(
+                        "--headless=new"
+                );
+
+                options.addArguments(
+                        "--no-sandbox"
+                );
+
+                options.addArguments(
+                        "--disable-dev-shm-usage"
+                );
+            }
+
+            driver =
+                    new ChromeDriver(options);
 
         } else if (browser.equalsIgnoreCase("edge")) {
 
@@ -95,7 +128,26 @@ public class BaseTest {
                     "Initializing Edge browser"
             );
 
-            driver = new EdgeDriver();
+            EdgeOptions options =
+                    new EdgeOptions();
+
+            if (headless) {
+
+                options.addArguments(
+                        "--headless"
+                );
+
+                options.addArguments(
+                        "--no-sandbox"
+                );
+
+                options.addArguments(
+                        "--disable-dev-shm-usage"
+                );
+            }
+
+            driver =
+                    new EdgeDriver(options);
 
         } else if (browser.equalsIgnoreCase("firefox")) {
 
@@ -103,7 +155,18 @@ public class BaseTest {
                     "Initializing Firefox browser"
             );
 
-            driver = new FirefoxDriver();
+            FirefoxOptions options =
+                    new FirefoxOptions();
+
+            if (headless) {
+
+                options.addArguments(
+                        "-headless"
+                );
+            }
+
+            driver =
+                    new FirefoxDriver(options);
 
         } else {
 
@@ -115,6 +178,11 @@ public class BaseTest {
 
         logger.info(
                 "Browser initialized successfully"
+        );
+
+        logger.info(
+                "Headless mode: {}",
+                headless
         );
     }
 
